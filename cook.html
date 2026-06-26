@@ -76,26 +76,26 @@
 
         <div class="field">
           <label>Your name / brand *</label>
-          <input type="text" placeholder="e.g. WaveWarz">
+          <input id="clientName" type="text" placeholder="e.g. WaveWarz">
         </div>
         <div class="field">
           <label>Email or contact *</label>
-          <input type="text" placeholder="you@brand.xyz or @handle">
+          <input id="clientEmail" type="text" placeholder="you@brand.xyz or @handle">
         </div>
         <div class="field">
           <label>The brief — what am I cooking?</label>
-          <textarea rows="4" placeholder="The idea, the vibe, the goal. Drop links to anything that inspires the direction."></textarea>
+          <textarea id="clientBrief" rows="4" placeholder="The idea, the vibe, the goal. Drop links to anything that inspires the direction."></textarea>
           <div class="hint">No brief? No problem — I'll cook from the brand and surprise you.</div>
         </div>
         <div class="field">
           <label>Brand assets &amp; links</label>
-          <textarea rows="3" placeholder="Logo, brand kit, colors, fonts, socials, drive/Figma links…"></textarea>
+          <textarea id="clientAssets" rows="3" placeholder="Logo, brand kit, colors, fonts, socials, drive/Figma links…"></textarea>
         </div>
         <div class="field">
           <label>Turnaround</label>
-          <select>
-            <option>Standard</option>
-            <option>Rush — fire it up (+25–50%)</option>
+          <select id="turnaround">
+            <option value="standard">Standard</option>
+            <option value="rush">Rush — fire it up (+50%)</option>
           </select>
         </div>
 
@@ -106,11 +106,10 @@
             <div class="opt">🪙 Crypto<span>stablecoin wallet</span></div>
             <div class="opt">🤖 x402<span>for agents</span></div>
           </div>
-          <div class="hint">Checkout is being wired up — submit your order and I'll send a secure payment link to lock your seat.</div>
+          <div class="hint">Card checkout is live via Stripe. Crypto and agent (x402) checkout coming soon.</div>
         </div>
 
-        <button class="btn btn-lg" style="width:100%;justify-content:center" onclick="placeOrder()">Place order &amp; fire up the grill 🔥</button>
-        <p id="ok" style="display:none;margin-top:16px;color:var(--lime);font-weight:700;text-align:center"></p>
+        <button class="btn btn-lg" style="width:100%;justify-content:center" onclick="placeOrder()">Place order &amp; pay with card</button>
       </div>
 
     </div>
@@ -151,12 +150,46 @@
     document.getElementById('sumGet').innerHTML = '<b style="color:var(--lime)">You get:</b> ' + c.get;
     document.title = "Order: " + c.t + " — Candy Cookz";
   }
-  function placeOrder(){
-    const el = document.getElementById('ok');
-    el.style.display='block';
-    el.textContent = "🔥 Order received! Lock your seat — a secure payment link is on its way. Then the cooking begins.";
-    el.scrollIntoView({behavior:'smooth',block:'center'});
+  async function placeOrder() {
+    const name  = document.getElementById('clientName').value.trim();
+    const email = document.getElementById('clientEmail').value.trim();
+    if (!name || !email) {
+      alert('Please fill in your name/brand and email to place an order.');
+      return;
+    }
+
+    const btn = document.querySelector('.btn.btn-lg');
+    const origText = btn.textContent;
+    btn.disabled = true;
+    btn.textContent = 'Firing up the grill…';
+
+    const cook    = new URLSearchParams(location.search).get('cook') || 'image';
+    const serving = document.getElementById('serving').value;
+    const rush    = document.getElementById('turnaround').value;
+    const brief   = document.getElementById('clientBrief').value.trim();
+    const assets  = document.getElementById('clientAssets').value.trim();
+
+    try {
+      const r = await fetch('/api/checkout', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ cook, serving, rush, name, email, brief, assets })
+      });
+      const data = await r.json();
+      if (data.url) {
+        window.location.href = data.url;
+      } else {
+        alert(data.error || 'Something went wrong. Please try again.');
+        btn.disabled = false;
+        btn.textContent = origText;
+      }
+    } catch (err) {
+      alert('Could not connect. Please try again.');
+      btn.disabled = false;
+      btn.textContent = origText;
+    }
   }
+
   function fit(){document.getElementById('burger').style.display = window.innerWidth<=900 ? 'inline-flex':'none';}
   window.addEventListener('resize',fit);fit();
 </script>

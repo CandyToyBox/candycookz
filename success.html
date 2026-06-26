@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Order Confirmed — Candy Cookz</title>
+<meta name="description" content="Your cook is confirmed. The grill is fired up.">
+<link rel="icon" href="assets/logo-icon.jpg">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap">
+    <a class="brand" href="index.html"><img src="assets/logo-icon.jpg" alt="Candy Cookz">Candy Cookz</a>
+    <nav class="nav-links" id="nav">
+      <a href="index.html">Home</a>
+      <a href="menu.html">The Menu</a>
+      <a href="portfolio.html">Past Cookz</a>
+      <a href="cook.html">Order a Cook</a>
+      <a href="api.html">For Agents</a>
+    </nav>
+    <button class="btn" onclick="document.getElementById('nav').classList.toggle('show')" style="display:none" id="burger">Menu</button>
+  </div>
+</header>
+
+<section class="section" style="min-height:65vh;display:flex;align-items:center">
+  <div class="wrap" style="text-align:center">
+    <div class="eyebrow">Order Confirmed</div>
+    <h1 style="max-width:16ch;margin:0 auto">The grill is <span class="flame-text">fired up.</span></h1>
+    <p class="lede" style="margin-top:20px;max-width:50ch;margin-left:auto;margin-right:auto">Your payment went through and your seat is locked. I'll reach out within 24 hours to confirm ingredients and kick off the cook.</p>
+
+    <div class="panel" style="max-width:480px;margin:34px auto 0;text-align:left">
+      <h3 style="font-size:1.05rem">What happens next</h3>
+      <div class="kv"><span class="k">1</span><div>Check your email for a payment receipt from Stripe.</div></div>
+      <div class="kv"><span class="k">2</span><div>I review your ingredients and confirm the cook is on.</div></div>
+      <div class="kv"><span class="k">3</span><div>You get the plate — with 3–4 tweaks included.</div></div>
+      <div class="kv"><span class="k">4</span><div>Love it? Smash the Cook Button and order again.</div></div>
+    </div>
+
+    <div style="margin-top:34px;display:flex;gap:16px;justify-content:center;flex-wrap:wrap">
+      <a class="btn btn-lg" href="menu.html">Back to the menu</a>
+      <a class="btn" href="cook.html">Order another cook</a>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="wrap">
+    <div class="brand"><img src="assets/logo-icon.jpg" alt="" style="height:34px">Candy Cookz</div>
+    <div>Productized creative for Web3 &amp; AI · candycookz.com</div>
+    <div><a href="menu.html">Menu</a> · <a href="portfolio.html">Past Cookz</a> · <a href="api.html">For Agents</a></div>
+  </div>
+</footer>
+
+<script>
+  function fit(){document.getElementById('burger').style.display = window.innerWidth<=900 ? 'inline-flex':'none';}
+  window.addEventListener('resize',fit);fit();
+</script>
+</body>
+</html>
