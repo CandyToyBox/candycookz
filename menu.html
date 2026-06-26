@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Menu — Candy Cookz</title>
+<meta name="description" content="The full Candy Cookz menu of creative cooks: images, content, logos, decks, websites, merch, video and more. Fixed prices, paid upfront.">
+<link rel="icon" href="assets/logo-icon.jpg">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap">
+    <a class="brand" href="index.html"><img src="assets/logo-icon.jpg" alt="Candy Cookz">Candy Cookz</a>
+    <nav class="nav-links" id="nav">
+      <a href="index.html">Home</a>
+      <a href="menu.html" class="active">The Menu</a>
+      <a href="portfolio.html">Past Cookz</a>
+      <a href="cook.html">Order a Cook</a>
+      <a href="api.html">For Agents</a>
+    </nav>
+    <button class="btn" onclick="document.getElementById('nav').classList.toggle('show')" style="display:none" id="burger">Menu</button>
+  </div>
+</header>
+
+<section class="section" style="padding-bottom:24px">
+  <div class="wrap">
+    <div class="eyebrow">The Menu</div>
+    <h1>What's <span class="flame-text">cooking.</span></h1>
+    <p class="lede" style="margin-top:16px">Every cook is a fixed price, paid upfront. You get a guaranteed minimum plus whatever extra the grill produces. Seats are limited — when a cook sells out, it's back when the line clears.</p>
+
+    <div class="grid grid-3" style="margin-top:26px">
+      <div class="panel"><h3 style="color:var(--flame-yellow)">Single Serving</h3><p class="muted">The base cook. One order, one plate.</p></div>
+      <div class="panel"><h3 style="color:var(--flame-yellow)">Family Style</h3><p class="muted">Bigger batch, more variations. ~2–3× the base.</p></div>
+      <div class="panel"><h3 style="color:var(--flame-yellow)">Keep Cooking</h3><p class="muted">Loved it? Smash the button and I keep going — the on-ramp to Reserved Seating.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ENTRY COOKS -->
+<section class="section" style="padding-top:24px">
+  <div class="wrap">
+    <h2 style="margin-bottom:22px">🔥 Everyday Cooks</h2>
+    <div class="grid grid-3">
+
+      <div class="cook">
+        <div class="top"><h3>Image Cook</h3><span class="price">$100</span></div>
+        <p class="desc">A batch of AI + Canva content on one subject. The impulse order.</p>
+        <div class="get"><b>You get:</b> 3–4 finished variations, minimum.</div>
+        <div class="foot"><span class="tag tag-seats">Open</span><a class="btn" href="cook.html?cook=image">Order →</a></div>
+      </div>
+
+      <div class="cook">
+        <div class="top"><h3>Content Cook</h3><span class="price">$300–500</span></div>
+        <p class="desc">A spread of branded content — social sets, AI imagery, graphics. I decide the mix.</p>
+        <div class="get"><b>You get:</b> a batch of finished, on-brand assets.</div>
+        <div class="foot"><span class="tag tag-seats">A few seats</span><a class="btn" href="cook.html?cook=content">Order →</a></div>
+      </div>
+
+      <div class="cook">
+        <div class="top"><h3>Album / Cover Art Cook</h3><span class="price">$250–350</span></div>
+        <p class="desc">Cover art with multiple directions and variations to choose from.</p>
+        <div class="get"><b>You get:</b> 2–3 directions + variations.</div>
+        <div class="foot"><span class="tag tag-seats">Open</span><a class="btn" href="cook.html?cook=album">Order →</a></div>
+      </div>
+
+      <div class="cook">
+        <div class="top"><h3>Social Graphics Cook</h3><span class="price">$200–400</span></div>
+        <p class="desc">Flyers, announcement banners, social posts, YouTube thumbnails — fixed counts.</p>
+        <div class="get"><b>You get:</b> a defined set of platform-ready graphics.</div>
+        <div class="foot"><span class="tag tag-seats">A few seats</span><a class="btn" href="cook.html?cook=social">Order →</a></div>
+      </div>
+
+      <div class="cook">
+        <div class="top"><h3>Logo Cook</h3><span class="price">$300–500</span></div>
+        <p class="desc">A custom logo with multiple variations from your name and brief.</p>
+        <div class="get"><b>You get:</b> ~3 logo concepts + files in the formats you need.</div>
+        <div class="foot"><span class="tag tag-seats">A few seats</span><a class="btn" href="cook.html?cook=logo">Order →</a></div>
+      </div>
+
+      <div class="cook">
+        <div class="top"><h3>Theme / Style Cook</h3><span class="price">$400–700</span></div>
+        <p class="desc">Three brand directions from your name and the vibe you're after.</p>
+        <div class="get"><b>You get:</b> 3 distinct style concepts.</div>
+        <div class="foot"><span class="tag tag-seats">A few seats</span><a class="btn" href="cook.html?cook=theme">Order →</a></div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- BUILD COOKS -->
+<section class="section" style="padding-top:10px">
+  <div class="wrap">
+    <h2 style="margin-bottom:22px">🍢 Bigger Plates</h2>
+    <div class="grid grid-3">
+
+      <div class="cook">
+        <div class="top"><h3>Merch Cook</h3><span class="price">$400–750</span></div>
+        <p class="desc">Print-on-demand designs set up in Printify / Printful, production-ready.</p>
+        <div class="get"><b>You get:</b> a small merch line, ready to sell.</div>
+        <div class="foot"><span class="tag tag-seats">A few seats</span><a class="btn" href="cook.html?cook=merch">Order →</a></div>
+      </div>
+
+      <div class="cook">
+        <div class="top"><h3>Promo Video Cook</h3><span class="price">$750–1,500</span></div>
+        <p class="desc">An edited promo, ad, or walkthrough video. Bundle 3 for $3,000.</p>
+        <div class="get"><b>You get:</b> one finished, platform-ready video.</div>
+        <div class="foot"><span class="tag tag-seats">Limited</span><a class="btn" href="cook.html?cook=video">Order →</a></div>
+      </div>
+
+      <div class="cook">
+        <div class="top"><h3>Webpage Cook</h3><span class="price">$500 / $1.5–3k</span></div>
+        <p class="desc">A built landing page. Add Web3 wallet or blockchain API integration for the hotter cook.</p>
+        <div class="get"><b>You get:</b> a live page; integration priced separately.</div>
+        <div class="foot"><span class="tag tag-soldout">1–2 seats</span><a class="btn" href="cook.html?cook=webpage">Order →</a></div>
+      </div>
+
+      <div class="cook">
+        <div class="top"><h3>Vibe Code Cook</h3><span class="price">$500+</span></div>
+        <p class="desc">A small built thing — page, tool, or prototype, made to feel right.</p>
+        <div class="get"><b>You get:</b> a working prototype.</div>
+        <div class="foot"><span class="tag tag-soldout">1–2 seats</span><a class="btn" href="cook.html?cook=vibecode">Order →</a></div>
+      </div>
+
+      <div class="cook">
+        <div class="top"><h3>Beta Test / Feedback Cook</h3><span class="price">$250–500</span></div>
+        <p class="desc">Hands-on app testing plus structured written feedback from a real creative user.</p>
+        <div class="get"><b>You get:</b> a written report + insider notes.</div>
+        <div class="foot"><span class="tag tag-agent">Human-in-loop</span><a class="btn" href="cook.html?cook=feedback">Order →</a></div>
+      </div>
+
+      <div class="cook" style="border-color:rgba(255,106,0,.5)">
+        <div class="top"><h3>Event Branding Cook</h3><span class="price">$2,500–5,000</span></div>
+        <p class="desc">The premium plate: logo, print, signage, merch, digital, and sponsorship deck.</p>
+        <div class="get"><b>You get:</b> a full, print- &amp; digital-ready event identity.</div>
+        <div class="foot"><span class="tag tag-special">Chef's signature</span><a class="btn" href="cook.html?cook=event">Order →</a></div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- POLICIES -->
+<section class="section" style="background:var(--char-2)">
+  <div class="wrap">
+    <div class="grid grid-2">
+      <div class="panel flame">
+        <h3>Edit &amp; re-cook policy</h3>
+        <p class="muted" style="margin-top:10px">Every cook includes up to <span class="hl">3–4 minor tweaks</span> — wording, colors, swapping an element. Plus <span class="hl">one full redo</span> if the direction was genuinely off. Bigger structural changes after that become a fresh cook.</p>
+      </div>
+      <div class="panel">
+        <h3>Reserved Seating</h3>
+        <p class="muted" style="margin-top:10px">Order enough cooks and I'll offer you <span class="hl">Reserved Seating</span> — a standing monthly seat with set deliverables, $1,500–$4,000/mo. Steady output, steady relationship, priority on the grill.</p>
+      </div>
+    </div>
+    <p class="badge-note" style="margin-top:22px">Prices rise as the kitchen gets busier — but only on new cooks at restock. Existing clients keep their rate.</p>
+  </div>
+</section>
+
+<section class="section center">
+  <div class="wrap">
+    <h2>Ready to order?</h2>
+    <a href="cook.html" style="display:inline-block;max-width:420px;width:100%;margin-top:20px"><img src="assets/smash-button.jpg" alt="Smash the Cook Button" style="border-radius:16px;box-shadow:var(--shadow)"></a>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="wrap">
+    <div class="brand"><img src="assets/logo-icon.jpg" alt="" style="height:34px">Candy Cookz</div>
+    <div>Productized creative for Web3 &amp; AI · candycookz.com</div>
+    <div><a href="portfolio.html">Past Cookz</a> · <a href="index.html">Home</a> · <a href="api.html">For Agents</a></div>
+  </div>
+</footer>
+
+<script>
+  function fit(){document.getElementById('burger').style.display = window.innerWidth<=900 ? 'inline-flex':'none';}
+  window.addEventListener('resize',fit);fit();
+</script>
+</body>
+</html>

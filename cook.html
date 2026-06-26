@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Order a Cook — Candy Cookz</title>
+<meta name="description" content="Order a cook: pick your serving size, drop your ingredients, pay upfront. Card, crypto, or x402.">
+<link rel="icon" href="assets/logo-icon.jpg">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap">
+    <a class="brand" href="index.html"><img src="assets/logo-icon.jpg" alt="Candy Cookz">Candy Cookz</a>
+    <nav class="nav-links" id="nav">
+      <a href="index.html">Home</a>
+      <a href="menu.html">The Menu</a>
+      <a href="portfolio.html">Past Cookz</a>
+      <a href="cook.html" class="active">Order a Cook</a>
+      <a href="api.html">For Agents</a>
+    </nav>
+    <button class="btn" onclick="document.getElementById('nav').classList.toggle('show')" style="display:none" id="burger">Menu</button>
+  </div>
+</header>
+
+<section class="section" style="padding-bottom:24px">
+  <div class="wrap">
+    <a href="menu.html" class="muted" style="font-size:.9rem">← Back to the menu</a>
+    <div class="eyebrow" style="margin-top:14px">Order a Cook</div>
+    <h1 id="cookTitle">Fire up the grill 🔥</h1>
+    <p class="lede" id="cookDesc" style="margin-top:14px">Choose a cook from the menu, drop your ingredients, and pay upfront. I start cooking the moment your order lands.</p>
+  </div>
+</section>
+
+<section class="section" style="padding-top:10px">
+  <div class="wrap">
+    <div class="grid grid-2" style="align-items:start;gap:34px">
+
+      <!-- ORDER SUMMARY -->
+      <div>
+        <div class="panel flame">
+          <div style="display:flex;justify-content:space-between;align-items:baseline;gap:12px">
+            <h3 id="sumTitle">Image Cook</h3>
+            <span class="price" id="sumPrice" style="font-size:1.5rem;color:var(--flame-yellow);font-weight:800">$100</span>
+          </div>
+          <p class="muted" id="sumGet" style="margin-top:8px"><b style="color:var(--lime)">You get:</b> 3–4 finished variations, minimum.</p>
+
+          <div class="field" style="margin-top:18px">
+            <label>Serving size</label>
+            <select id="serving">
+              <option value="single">Single Serving — base cook</option>
+              <option value="family">Family Style — bigger batch (~2.5×)</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="panel" style="margin-top:18px">
+          <h3 style="font-size:1.1rem">What happens next</h3>
+          <div class="kv"><span class="k">1</span><div>You pay upfront and submit your ingredients.</div></div>
+          <div class="kv"><span class="k">2</span><div>I confirm your seat and start cooking.</div></div>
+          <div class="kv"><span class="k">3</span><div>You get the plate, plus 3–4 tweaks &amp; one redo if it's off.</div></div>
+          <div class="kv"><span class="k">4</span><div>Want more? Smash the Cook Button.</div></div>
+        </div>
+
+        <div class="panel" style="margin-top:18px">
+          <h3 style="font-size:1.1rem">Edit policy</h3>
+          <p class="muted" style="margin-top:8px">Up to <span class="hl">3–4 minor tweaks</span> + <span class="hl">one full redo</span> if the direction was genuinely off. Bigger changes after that = a fresh cook.</p>
+        </div>
+      </div>
+
+      <!-- INTAKE FORM -->
+      <div class="form">
+        <h3 style="margin-bottom:6px">Drop your ingredients</h3>
+        <p class="muted" style="margin-bottom:20px;font-size:.92rem">The more you give me, the better the cook. Required fields marked *.</p>
+
+        <div class="field">
+          <label>Your name / brand *</label>
+          <input type="text" placeholder="e.g. WaveWarz">
+        </div>
+        <div class="field">
+          <label>Email or contact *</label>
+          <input type="text" placeholder="you@brand.xyz or @handle">
+        </div>
+        <div class="field">
+          <label>The brief — what am I cooking?</label>
+          <textarea rows="4" placeholder="The idea, the vibe, the goal. Drop links to anything that inspires the direction."></textarea>
+          <div class="hint">No brief? No problem — I'll cook from the brand and surprise you.</div>
+        </div>
+        <div class="field">
+          <label>Brand assets &amp; links</label>
+          <textarea rows="3" placeholder="Logo, brand kit, colors, fonts, socials, drive/Figma links…"></textarea>
+        </div>
+        <div class="field">
+          <label>Turnaround</label>
+          <select>
+            <option>Standard</option>
+            <option>Rush — fire it up (+25–50%)</option>
+          </select>
+        </div>
+
+        <div class="field" style="margin-bottom:10px">
+          <label>Pay upfront</label>
+          <div class="pay">
+            <div class="opt">💳 Card<span>via Stripe</span></div>
+            <div class="opt">🪙 Crypto<span>stablecoin wallet</span></div>
+            <div class="opt">🤖 x402<span>for agents</span></div>
+          </div>
+          <div class="hint">Checkout is being wired up — submit your order and I'll send a secure payment link to lock your seat.</div>
+        </div>
+
+        <button class="btn btn-lg" style="width:100%;justify-content:center" onclick="placeOrder()">Place order &amp; fire up the grill 🔥</button>
+        <p id="ok" style="display:none;margin-top:16px;color:var(--lime);font-weight:700;text-align:center"></p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="wrap">
+    <div class="brand"><img src="assets/logo-icon.jpg" alt="" style="height:34px">Candy Cookz</div>
+    <div>Productized creative for Web3 &amp; AI · candycookz.com</div>
+    <div><a href="menu.html">Menu</a> · <a href="portfolio.html">Past Cookz</a> · <a href="api.html">For Agents</a></div>
+  </div>
+</footer>
+
+<script>
+  const COOKS = {
+    image:   {t:"Image Cook",            p:"$100",        get:"3–4 finished AI + Canva variations, minimum."},
+    content: {t:"Content Cook",          p:"$300–500",    get:"a batch of finished, on-brand assets — I pick the mix."},
+    album:   {t:"Album / Cover Art Cook",p:"$250–350",    get:"2–3 cover directions plus variations."},
+    social:  {t:"Social Graphics Cook",  p:"$200–400",    get:"a defined set of platform-ready graphics."},
+    logo:    {t:"Logo Cook",             p:"$300–500",    get:"~3 logo concepts + files in the formats you need."},
+    theme:   {t:"Theme / Style Cook",    p:"$400–700",    get:"3 distinct brand style directions."},
+    merch:   {t:"Merch Cook",            p:"$400–750",    get:"a small merch line set up in Printify/Printful."},
+    video:   {t:"Promo Video Cook",      p:"$750–1,500",  get:"one finished, platform-ready video."},
+    webpage: {t:"Webpage Cook",          p:"$500 / $1.5–3k",get:"a live landing page; Web3 integration priced separately."},
+    vibecode:{t:"Vibe Code Cook",        p:"$500+",       get:"a working prototype — page, tool, or experiment."},
+    feedback:{t:"Beta Test / Feedback Cook",p:"$250–500", get:"a written feedback report + insider notes."},
+    event:   {t:"Event Branding Cook",   p:"$2,500–5,000",get:"a full, print- & digital-ready event identity package."}
+  };
+  const params = new URLSearchParams(location.search);
+  const key = params.get('cook');
+  if(key && COOKS[key]){
+    const c = COOKS[key];
+    document.getElementById('cookTitle').textContent = "Order: " + c.t;
+    document.getElementById('cookDesc').textContent = "Drop your ingredients below, choose your serving size, and pay upfront. I start cooking the moment your order lands.";
+    document.getElementById('sumTitle').textContent = c.t;
+    document.getElementById('sumPrice').textContent = c.p;
+    document.getElementById('sumGet').innerHTML = '<b style="color:var(--lime)">You get:</b> ' + c.get;
+    document.title = "Order: " + c.t + " — Candy Cookz";
+  }
+  function placeOrder(){
+    const el = document.getElementById('ok');
+    el.style.display='block';
+    el.textContent = "🔥 Order received! Lock your seat — a secure payment link is on its way. Then the cooking begins.";
+    el.scrollIntoView({behavior:'smooth',block:'center'});
+  }
+  function fit(){document.getElementById('burger').style.display = window.innerWidth<=900 ? 'inline-flex':'none';}
+  window.addEventListener('resize',fit);fit();
+</script>
+</body>
+</html>

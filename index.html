@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Candy Cookz — Productized Creative for Web3 & AI</title>
+<meta name="description" content="Order a cook, drop your ingredients, I fire up the grill. Productized creative services for Web3 & AI brands. Paid upfront. No quotes, no haggling.">
+<link rel="icon" href="assets/logo-icon.jpg">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- NAV -->
+<header class="nav">
+  <div class="wrap">
+    <a class="brand" href="index.html"><img src="assets/logo-icon.jpg" alt="Candy Cookz">Candy Cookz</a>
+    <nav class="nav-links" id="nav">
+      <a href="index.html" class="active">Home</a>
+      <a href="menu.html">The Menu</a>
+      <a href="portfolio.html">Past Cookz</a>
+      <a href="cook.html">Order a Cook</a>
+      <a href="api.html">For Agents</a>
+    </nav>
+    <button class="btn" onclick="document.getElementById('nav').classList.toggle('show')" style="display:none" id="burger">Menu</button>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-grate"></div>
+  <canvas class="hero-fire" id="fireCanvas"></canvas>
+  <div class="hero-fade"></div>
+  <div class="hero-glow"></div>
+  <div class="hero-content">
+    <img class="hero-logo" src="assets/logo-hero.png" alt="Candy Cookz">
+    <div class="hero-creative">Creative Services</div>
+    <a href="menu.html" aria-label="Smash the cook button"><img class="hero-smash" src="assets/smash-button.png" alt="Smash the Cook Button"></a>
+    <div class="hero-cta">
+      <a class="btn" href="menu.html">See the Menu 🔥</a>
+      <a class="btn btn-ghost" href="portfolio.html">Taste the Past Cookz</a>
+    </div>
+  </div>
+</section>
+
+<!-- Temperature rising strip -->
+<div class="temp-strip">
+  <div class="pat"></div>
+  <span class="temp-badge">🔥 Temperature Rising · Web3 &amp; AI Creative</span>
+</div>
+
+<!-- WHAT IS THIS -->
+<section class="section">
+  <div class="wrap">
+    <div class="section-head center">
+      <div class="eyebrow">The idea</div>
+      <h2>A menu, not a meeting.</h2>
+      <p class="lede center" style="margin:14px auto 0">Hiring a creative shouldn't mean scope calls, quotes, and chasing invoices. At Candy Cookz everything is <span class="hl">productized</span>. You buy a cook the way you'd order a dish — you know the price, you pay upfront, and the kitchen does the rest.</p>
+    </div>
+    <div class="grid grid-3">
+      <div class="card"><div class="skewer">🍢</div><h3>Fixed-price cooks</h3><p>Every service is a dish on the menu with a set price. What you see is what you pay — no negotiating, ever.</p></div>
+      <div class="card"><div class="skewer">🔥</div><h3>Cooked by feel</h3><p>A cook buys you my full attention on a topic. You get a guaranteed minimum, plus however much extra the grill runs hot that day.</p></div>
+      <div class="card"><div class="skewer">💥</div><h3>Smash for more</h3><p>Love it? Smash the Cook Button and I keep going. Repeat orders turn into Reserved Seating — your standing monthly seat.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="section" style="background:var(--char-2)">
+  <div class="wrap">
+    <div class="section-head center"><div class="eyebrow">How it works</div><h2>From order to plate</h2></div>
+    <div class="steps">
+      <div class="step"><div class="n">1</div><h4>Order</h4><p>Pick a cook and pay upfront. Card, crypto, or agent-to-agent via x402.</p></div>
+      <div class="step"><div class="n">2</div><h4>Drop ingredients</h4><p>Send your logo, brand kit, brief, and links through the intake form.</p></div>
+      <div class="step"><div class="n">3</div><h4>I cook</h4><p>I go off feel and make what the brand needs — a few pieces or a full spread.</p></div>
+      <div class="step"><div class="n">4</div><h4>Plate it</h4><p>You get the work, plus 3–4 tweaks and one redo if the direction was off.</p></div>
+      <div class="step"><div class="n">5</div><h4>Smash for more</h4><p>Want me to keep cooking? Hit the button. It can become Reserved Seating.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURED COOKS -->
+<section class="section">
+  <div class="wrap">
+    <div class="banner"><img src="assets/tonights-specials.jpg" alt="Tonight's Specials"></div>
+    <div class="grid grid-3">
+      <div class="cook">
+        <div class="top"><h3>Image Cook</h3><span class="price">$100</span></div>
+        <p class="desc">A batch of AI + Canva content on one subject. Fast, fresh, impulse-easy.</p>
+        <div class="get"><b>You get:</b> 3–4 finished variations, minimum.</div>
+        <div class="foot"><span class="tag tag-seats">Open</span><a class="btn" href="cook.html">Order →</a></div>
+      </div>
+      <div class="cook">
+        <div class="top"><h3>Brand / Theme Cook</h3><span class="price">$300+</span></div>
+        <p class="desc">Three brand direction concepts from your name and the vibe you're chasing.</p>
+        <div class="get"><b>You get:</b> 3 distinct style directions.</div>
+        <div class="foot"><span class="tag tag-seats">A few seats</span><a class="btn" href="cook.html">Order →</a></div>
+      </div>
+      <div class="cook">
+        <div class="top"><h3>Event Branding Cook</h3><span class="price">$2,500+</span></div>
+        <p class="desc">The premium plate — logo, signage, merch, sponsorship deck. Art Basel energy.</p>
+        <div class="get"><b>You get:</b> a full event identity package.</div>
+        <div class="foot"><span class="tag tag-soldout">1–2 seats only</span><a class="btn" href="cook.html">Order →</a></div>
+      </div>
+    </div>
+    <div class="center" style="margin-top:34px"><a class="btn btn-ghost btn-lg" href="menu.html">See the full menu →</a></div>
+  </div>
+</section>
+
+<!-- AGENT STRIP -->
+<section class="section" style="background:var(--char-2)">
+  <div class="wrap">
+    <div class="grid grid-2" style="align-items:center;gap:40px">
+      <div>
+        <div class="eyebrow">New: agentic commerce</div>
+        <h2>Agents can order too.</h2>
+        <p class="lede" style="margin:16px 0 24px">AI agents can browse the menu, pay per cook in stablecoin over <span class="hl">x402</span>, and get content back — no human in the loop. Need a real human to test your app or give an honest Web3 take? That's something an agent can't fake. Candy Cookz serves both.</p>
+        <a class="btn" href="api.html">See the Agent Menu →</a>
+      </div>
+      <div class="panel flame">
+        <div class="kv"><span class="k">▸</span><div><b>Human Feedback Cook</b> — a real person tests your app and sends notes + a face-on-camera video.</div></div>
+        <div class="kv"><span class="k">▸</span><div><b>Web3 Brain Cook</b> — genuine human voice, opinion, and AMA an agent can't synthesize.</div></div>
+        <div class="kv"><span class="k">▸</span><div><b>Logo / Image / Social Cooks</b> — deterministic creative, delivered on order.</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BIG CTA -->
+<section class="section center">
+  <div class="wrap">
+    <h2>Hungry yet?</h2>
+    <p class="lede center" style="margin:14px auto 28px">Pick a cook and let's get the grill going.</p>
+    <a href="menu.html" style="display:inline-block;max-width:420px;width:100%"><img src="assets/smash-button.jpg" alt="Smash the Cook Button" style="border-radius:16px;box-shadow:var(--shadow)"></a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="wrap">
+    <div class="brand"><img src="assets/logo-icon.jpg" alt="" style="height:34px">Candy Cookz</div>
+    <div>Productized creative for Web3 &amp; AI · candycookz.com</div>
+    <div><a href="menu.html">Menu</a> · <a href="portfolio.html">Past Cookz</a> · <a href="api.html">For Agents</a></div>
+  </div>
+</footer>
+
+<script>
+  // show burger on small screens
+  function fit(){document.getElementById('burger').style.display = window.innerWidth<=900 ? 'inline-flex':'none';}
+  window.addEventListener('resize',fit);fit();
+
+  // ===== Procedural fire shader (WebGL) =====
+  (function(){
+    const canvas=document.getElementById('fireCanvas');
+    const gl=canvas.getContext('webgl')||canvas.getContext('experimental-webgl');
+    if(!gl){return;}
+    const vs=`attribute vec2 p;void main(){gl_Position=vec4(p,0.0,1.0);}`;
+    const fs=`precision mediump float;uniform float time;uniform vec2 res;
+      float hash(float n){return fract(sin(n)*43758.5453123);}
+      float noise(vec2 x){vec2 p=floor(x);vec2 f=fract(x);f=f*f*(3.0-2.0*f);
+        float n=p.x+p.y*57.0;
+        return mix(mix(hash(n),hash(n+1.0),f.x),mix(hash(n+57.0),hash(n+58.0),f.x),f.y);}
+      float fbm(vec2 p){float v=0.0;v+=0.5*noise(p);p*=2.02;v+=0.25*noise(p);p*=2.03;
+        v+=0.125*noise(p);p*=2.01;v+=0.0625*noise(p);return v;}
+      void main(){
+        vec2 uv=gl_FragCoord.xy/res.xy;
+        vec2 c=uv-0.5;float d=length(c);
+        float haze=fbm(uv*10.0+time*1.5)*0.03*(1.0-d);
+        vec2 du=uv+vec2(haze,haze*2.0);
+        vec2 fuv=du;fuv.y-=time*1.4;fuv.x+=sin(time*2.0+du.y*5.0)*0.05;
+        float n=fbm(fuv*3.0)*1.5+fbm(fuv*6.0)*0.8+fbm(fuv*12.0)*0.4;
+        float inten=pow(1.0-abs(du.x-0.5)*1.7,2.4);inten*=(1.0-du.y*0.7);
+        float fire=n*inten*1.5;
+        vec3 red=vec3(1.0,0.1,0.0),orange=vec3(1.0,0.5,0.0),yellow=vec3(1.0,0.9,0.4);
+        vec3 col=mix(red,orange,clamp(fire,0.0,1.0));
+        col=mix(col,yellow,clamp(fire-0.8,0.0,1.0));col*=1.4;
+        float mask=clamp(fire*0.9,0.0,0.85);
+        gl_FragColor=vec4(col*mask,mask);
+      }`;
+    function sh(t,s){const o=gl.createShader(t);gl.shaderSource(o,s);gl.compileShader(o);return o;}
+    const prog=gl.createProgram();
+    gl.attachShader(prog,sh(gl.VERTEX_SHADER,vs));
+    gl.attachShader(prog,sh(gl.FRAGMENT_SHADER,fs));
+    gl.linkProgram(prog);gl.useProgram(prog);
+    const buf=gl.createBuffer();gl.bindBuffer(gl.ARRAY_BUFFER,buf);
+    gl.bufferData(gl.ARRAY_BUFFER,new Float32Array([-1,-1,1,-1,-1,1,-1,1,1,-1,1,1]),gl.STATIC_DRAW);
+    const pl=gl.getAttribLocation(prog,'p');gl.enableVertexAttribArray(pl);
+    gl.vertexAttribPointer(pl,2,gl.FLOAT,false,0,0);
+    const tL=gl.getUniformLocation(prog,'time'),rL=gl.getUniformLocation(prog,'res');
+    function render(t){
+      const w=canvas.clientWidth||canvas.offsetWidth,h=canvas.clientHeight||canvas.offsetHeight;
+      if(canvas.width!==w||canvas.height!==h){canvas.width=w;canvas.height=h;}
+      gl.viewport(0,0,canvas.width,canvas.height);
+      gl.uniform1f(tL,t*0.001);gl.uniform2f(rL,canvas.width,canvas.height);
+      gl.drawArrays(gl.TRIANGLES,0,6);requestAnimationFrame(render);
+    }
+    requestAnimationFrame(render);
+  })();
+</script>
+</body>
+</html>

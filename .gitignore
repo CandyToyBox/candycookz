@@ -1,0 +1,24 @@
+# OS
+.DS_Store
+Thumbs.db
+
+# Editor / deps
+node_modules/
+.vscode/
+.idea/
+
+# Secrets — never commit these
+.env
+.env.*
+*.local
+
+# Temp build/preview artifacts
+*_preview.jpg
+assets/_hero_preview.jpg
+
+# Unused real-food photo (kept on disk but not shipped — brand uses graphics only)
+assets/hero.jpg
+
+# Large source videos (host externally — see HANDOFF.md).
+# The 4 small clips in assets/video/ ARE committed and deploy fine.
+*.mov
