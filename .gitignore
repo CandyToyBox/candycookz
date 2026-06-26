@@ -22,3 +22,4 @@ assets/hero.jpg
 # Large source videos (host externally — see HANDOFF.md).
 # The 4 small clips in assets/video/ ARE committed and deploy fine.
 *.mov
+.vercel
