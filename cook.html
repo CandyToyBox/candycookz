@@ -126,19 +126,31 @@
 
 <script>
   const COOKS = {
-    image:   {t:"Image Cook",            p:"$100",        get:"3–4 finished AI + Canva variations, minimum."},
-    content: {t:"Content Cook",          p:"$300–500",    get:"a batch of finished, on-brand assets — I pick the mix."},
-    album:   {t:"Album / Cover Art Cook",p:"$250–350",    get:"2–3 cover directions plus variations."},
-    social:  {t:"Social Graphics Cook",  p:"$200–400",    get:"a defined set of platform-ready graphics."},
-    logo:    {t:"Logo Cook",             p:"$300–500",    get:"~3 logo concepts + files in the formats you need."},
-    theme:   {t:"Theme / Style Cook",    p:"$400–700",    get:"3 distinct brand style directions."},
-    merch:   {t:"Merch Cook",            p:"$400–750",    get:"a small merch line set up in Printify/Printful."},
-    video:   {t:"Promo Video Cook",      p:"$750–1,500",  get:"one finished, platform-ready video."},
-    webpage: {t:"Webpage Cook",          p:"$500 / $1.5–3k",get:"a live landing page; Web3 integration priced separately."},
-    vibecode:{t:"Vibe Code Cook",        p:"$500+",       get:"a working prototype — page, tool, or experiment."},
-    feedback:{t:"Beta Test / Feedback Cook",p:"$250–500", get:"a written feedback report + insider notes."},
-    event:   {t:"Event Branding Cook",   p:"$2,500–5,000",get:"a full, print- & digital-ready event identity package."}
+    image:   {t:"Image Cook",            single:100,  family:250,  get:"3–4 finished AI + Canva variations, minimum."},
+    content: {t:"Content Cook",          single:300,  family:750,  get:"a batch of finished, on-brand assets — I pick the mix."},
+    album:   {t:"Album / Cover Art Cook",single:250,  family:625,  get:"2–3 cover directions plus variations."},
+    social:  {t:"Social Graphics Cook",  single:200,  family:500,  get:"a defined set of platform-ready graphics."},
+    logo:    {t:"Logo Cook",             single:300,  family:750,  get:"~3 logo concepts + files in the formats you need."},
+    theme:   {t:"Theme / Style Cook",    single:400,  family:1000, get:"3 distinct brand style directions."},
+    merch:   {t:"Merch Cook",            single:400,  family:1000, get:"a small merch line set up in Printify/Printful."},
+    video:   {t:"Promo Video Cook",      single:750,  family:1875, get:"one finished, platform-ready video."},
+    webpage: {t:"Webpage Cook",          single:500,  family:1250, get:"a live landing page; Web3 integration priced separately."},
+    vibecode:{t:"Vibe Code Cook",        single:500,  family:1250, get:"a working prototype — page, tool, or experiment."},
+    feedback:{t:"Beta Test / Feedback Cook",single:250,family:625, get:"a written feedback report + insider notes."},
+    event:   {t:"Event Branding Cook",   single:2500, family:6250, get:"a full, print- & digital-ready event identity package."}
   };
+
+  function updatePrice() {
+    const cook = new URLSearchParams(location.search).get('cook') || 'image';
+    const c = COOKS[cook];
+    if (!c) return;
+    const serving = document.getElementById('serving').value;
+    const rush    = document.getElementById('turnaround').value;
+    let amount = serving === 'family' ? c.family : c.single;
+    if (rush === 'rush') amount = Math.round(amount * 1.5);
+    document.getElementById('sumPrice').textContent = '$' + amount.toLocaleString();
+  }
+
   const params = new URLSearchParams(location.search);
   const key = params.get('cook');
   if(key && COOKS[key]){
@@ -146,10 +158,13 @@
     document.getElementById('cookTitle').textContent = "Order: " + c.t;
     document.getElementById('cookDesc').textContent = "Drop your ingredients below, choose your serving size, and pay upfront. I start cooking the moment your order lands.";
     document.getElementById('sumTitle').textContent = c.t;
-    document.getElementById('sumPrice').textContent = c.p;
     document.getElementById('sumGet').innerHTML = '<b style="color:var(--lime)">You get:</b> ' + c.get;
     document.title = "Order: " + c.t + " — Candy Cookz";
   }
+
+  document.getElementById('serving').addEventListener('change', updatePrice);
+  document.getElementById('turnaround').addEventListener('change', updatePrice);
+  updatePrice();
   async function placeOrder() {
     const name  = document.getElementById('clientName').value.trim();
     const email = document.getElementById('clientEmail').value.trim();
