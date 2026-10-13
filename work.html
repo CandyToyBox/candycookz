@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Candy Cookz Portfolio</title>
+<meta name="description" content="Festival brands, sponsor and pitch decks, AI music videos and product builds by Candy Cookz.">
+<link rel="icon" href="assets/logo-icon.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;700&family=Figtree:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+/* Layout: sticky anchor bar, a type-led hero, then five sections of work. Videos and site captures are the content; the page stays quiet around them. */
+:root {
+  --bg: #FAF7FC;
+  --surface: #FFFFFF;
+  --ink: #1A1423;
+  --muted: #5E546B;
+  --line: #E4DCEC;
+  --pink: #D91E64;
+  --pink-soft: #FCE3EE;
+  --lemon: #FFD23F;
+  --frame: #1A1423;
+  --font-display: "Unbounded", "Trebuchet MS", system-ui, sans-serif;
+  --font-body: "Figtree", system-ui, -apple-system, "Segoe UI", sans-serif;
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #130F1B; --surface: #1D1727; --ink: #F4EEFA; --muted: #B3A8C2; --line: #33293F;
+    --pink: #FF5E96; --pink-soft: #3A1729; --frame: #0B0810;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #130F1B; --surface: #1D1727; --ink: #F4EEFA; --muted: #B3A8C2; --line: #33293F;
+  --pink: #FF5E96; --pink-soft: #3A1729; --frame: #0B0810;
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+img { max-width: 100%; }
+body { margin: 0; background: var(--bg); color: var(--ink); font-family: var(--font-body); font-size: 17px; line-height: 1.6; padding-inline: 20px; padding-block: 0 80px; }
+.wrap { max-width: 1120px; margin-inline: auto; }
+h1, h2, h3 { font-family: var(--font-display); font-weight: 700; line-height: 1.12; margin: 0; text-wrap: balance; }
+h1 { font-size: clamp(2.5rem, 8vw, 5.4rem); letter-spacing: -0.03em; }
+h2 { font-size: clamp(1.45rem, 3.4vw, 2.1rem); letter-spacing: -0.02em; }
+h3 { font-size: 1.02rem; font-weight: 500; letter-spacing: -0.01em; line-height: 1.3; }
+p { margin: 0; max-width: 64ch; }
+a { color: inherit; }
+a:focus-visible, button:focus-visible, [tabindex]:focus-visible, video:focus-visible { outline: 3px solid var(--pink); outline-offset: 3px; }
+
+nav.bar { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 5; margin-inline: -20px; padding: 10px 20px; background: var(--bg); border-bottom: 1px solid var(--line); }
+nav.bar .in { max-width: 1120px; margin-inline: auto; display: flex; gap: 6px 18px; align-items: center; flex-wrap: wrap; font-size: 0.86rem; font-weight: 500; }
+nav.bar b { font-family: var(--font-display); font-size: 0.82rem; margin-right: auto; }
+nav.bar a { text-decoration: none; color: var(--muted); padding-block: 2px; border-bottom: 2px solid transparent; }
+nav.bar b a { color: var(--ink); border-bottom: 0; }
+nav.bar a:hover { color: var(--ink); border-bottom-color: var(--pink); }
+
+header.hero { padding-block: 64px 48px; display: grid; gap: 26px; }
+.kicker { font-size: 0.78rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--pink); }
+.hero h1 span { background: linear-gradient(transparent 62%, var(--lemon) 62% 92%, transparent 92%); }
+.hero p.lede { font-size: 1.22rem; color: var(--muted); }
+.chips { display: flex; flex-wrap: wrap; gap: 8px; padding: 0; margin: 0; list-style: none; }
+.chips li { font-size: 0.85rem; font-weight: 500; padding: 6px 14px; border: 1px solid var(--line); border-radius: 99px; background: var(--surface); }
+.proof { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 210px), 1fr)); gap: 12px; margin-top: 8px; }
+.proof div { border-top: 3px solid var(--pink); padding-top: 10px; }
+.proof b { display: block; font-family: var(--font-display); font-size: 1.7rem; line-height: 1.1; font-variant-numeric: tabular-nums; }
+.proof span { font-size: 0.9rem; color: var(--muted); }
+
+section { padding-block: 56px; border-top: 1px solid var(--line); display: grid; gap: 28px; scroll-margin-top: 60px; }
+.sec-head { display: grid; gap: 8px; }
+.sec-head p { color: var(--muted); }
+.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 330px), 1fr)); gap: 28px 24px; }
+.grid.two { grid-template-columns: repeat(auto-fit, minmax(min(100%, 460px), 1fr)); }
+
+figure.work { margin: 0; display: grid; gap: 12px; align-content: start; min-width: 0; }
+figure.work video { width: 100%; aspect-ratio: 16 / 9; background: var(--frame); border-radius: 10px; display: block; object-fit: contain; }
+figure.work.sq video { aspect-ratio: 4 / 3; }
+figcaption { display: grid; gap: 6px; }
+figcaption p { font-size: 0.95rem; color: var(--muted); }
+.meta { display: flex; flex-wrap: wrap; gap: 4px 10px; font-size: 0.78rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--pink); }
+.meta span + span::before { content: "/"; margin-right: 10px; color: var(--line); }
+
+.site { display: grid; grid-template-columns: minmax(0, 1fr); gap: 20px; }
+.browser { background: var(--frame); border-radius: 12px; padding: 0 0 8px; overflow: hidden; }
+.browser .top { display: flex; align-items: center; gap: 6px; padding: 10px 14px; color: #B8AEC6; font-size: 0.78rem; }
+.browser .top i { width: 9px; height: 9px; border-radius: 50%; background: #4A3F58; display: block; }
+.browser .top em { font-style: normal; margin-left: 8px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.scroller { height: 460px; overflow-y: auto; background: #000; margin-inline: 8px; border-radius: 6px; overscroll-behavior: contain; }
+.scroller img { display: block; width: 100%; height: auto; }
+.hint { font-size: 0.82rem; color: var(--muted); }
+.site-copy { display: grid; gap: 10px; align-content: start; }
+.site-copy a.go { justify-self: start; font-weight: 700; font-size: 0.92rem; text-decoration: none; background: var(--ink); color: var(--bg); padding: 9px 16px; border-radius: 8px; }
+.site-copy a.go:hover { background: var(--pink); color: #fff; }
+@media (min-width: 820px) { .site { grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr); gap: 36px; } .site.flip .browser { order: 2; } }
+
+.links { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 250px), 1fr)); gap: 16px; }
+a.link { display: grid; gap: 6px; text-decoration: none; background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 18px; align-content: start; }
+a.link:hover { border-color: var(--pink); }
+a.link b { font-family: var(--font-display); font-weight: 500; font-size: 0.98rem; overflow-wrap: anywhere; }
+a.link span { font-size: 0.92rem; color: var(--muted); }
+a.link u { font-size: 0.8rem; font-weight: 700; color: var(--pink); text-decoration: none; letter-spacing: 0.06em; text-transform: uppercase; }
+
+.tools { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); gap: 24px; align-items: start; }
+.tools img { width: 100%; height: auto; border-radius: 14px; display: block; }
+.tools .stack { display: grid; gap: 14px; }
+.tools ul { margin: 0; padding-left: 1.1em; display: grid; gap: 6px; color: var(--muted); }
+.tools ul li::marker { color: var(--pink); }
+footer { padding-top: 36px; border-top: 1px solid var(--line); display: flex; flex-wrap: wrap; gap: 8px 24px; justify-content: space-between; font-size: 0.9rem; color: var(--muted); }
+footer b { font-family: var(--font-display); color: var(--ink); }
+footer a.mail { font-weight: 700; color: var(--ink); text-decoration-color: var(--pink); text-underline-offset: 4px; overflow-wrap: anywhere; }
+</style>
+
+</head>
+<body>
+<div class="wrap">
+<nav class="bar" aria-label="Sections">
+  <div class="in">
+    <b><a href="/">Candy Cookz</a></b>
+    <a href="#events">Events</a>
+    <a href="#decks">Decks</a>
+    <a href="#video">AI video</a>
+    <a href="#builds">Builds</a>
+    <a href="#toolkit">Toolkit</a>
+    <a href="#contact">Contact</a>
+    <a href="menu">The Menu</a>
+  </div>
+</nav>
+
+<header class="hero">
+  <span class="kicker">Creative and AI systems</span>
+  <h1>Candy <span>Cookz</span></h1>
+  <p class="lede">I design the brand, build the deck, cut the video and set up the AI workflow that keeps it running. Co-founder of WaveWarz and the ZAO. Web3 operator, community builder and content strategist.</p>
+  <ul class="chips">
+    <li>Brand identity</li><li>Event design</li><li>Sponsor decks</li><li>AI video</li><li>Community</li><li>Product builds</li>
+  </ul>
+  <div class="proof">
+    <div><b>2</b><span>festival brands built from logo to merch: NFT NYC and Miami Art Week, 2024</span></div>
+    <div><b>120</b><span>artists in the ZAO-CHELLA digital gallery</span></div>
+    <div><b>10+</b><span>live Web3 musicians on the ZAO-CHELLA lineup</span></div>
+  </div>
+</header>
+
+<section id="events">
+  <div class="sec-head">
+    <span class="kicker">Events and brand identity</span>
+    <h2>Festival brands people can wear, scan and sponsor</h2>
+    <p>Each event got a full identity: logo, palette, type, signage, print, merch and a site that sells tickets and sponsor space.</p>
+  </div>
+  <div class="grid two">
+    <figure class="work sq">
+      <video controls preload="none" playsinline poster="assets/work/posters/zao-chella-brand.jpg" aria-label="ZAO-CHELLA brand walkthrough"><source src="assets/work/video/zao-chella-brand.mp4" type="video/mp4"></video>
+      <figcaption>
+        <div class="meta"><span>Brand</span><span>Miami Art Week</span><span>1:12</span></div>
+        <h3>ZAO-CHELLA brand system</h3>
+        <p>Logo, signage, print and merch for a Web3 music and art showcase on December 6, 2024, plus the event site.</p>
+      </figcaption>
+    </figure>
+    <figure class="work sq">
+      <video controls preload="none" playsinline poster="assets/work/posters/zao-palooza.jpg" aria-label="ZAO-PALOOZA brand walkthrough"><source src="assets/work/video/zao-palooza.mp4" type="video/mp4"></video>
+      <figcaption>
+        <div class="meta"><span>Brand</span><span>NFT NYC</span><span>0:29</span></div>
+        <h3>ZAO-PALOOZA brand system</h3>
+        <p>Logo, color facts, type, mood board, website, deck and merch for the April 3 NFT NYC event, with sponsor placements shown in the room.</p>
+      </figcaption>
+    </figure>
+  </div>
+
+  <div class="site">
+    <div>
+      <div class="browser">
+        <div class="top"><i></i><i></i><i></i><em>zaofestivals.com · captured Jan 8, 2026</em></div>
+        <div class="scroller" role="region" aria-label="Scrollable capture of the ZAO-CHELLA event site" tabindex="0"><img src="assets/work/img/zaofestivals-page.jpg" alt="Full-page capture of the ZAO-CHELLA event website with countdown, VIP ticket tiers, lineup, event details and sponsor call" width="960" height="14400"></div>
+      </div>
+      <p class="hint">Scroll inside the frame to see the whole page.</p>
+    </div>
+    <div class="site-copy">
+      <span class="meta"><span>Website</span><span>Ticketing</span><span>Sponsorship</span></span>
+      <h3>The ZAO-CHELLA event site</h3>
+      <p>One page that does the whole job: a countdown, three VIP ticket tiers with invite codes, run of show, venue, the artist lineup, the team and a sponsor and vendor call that links to the event deck.</p>
+      <a class="go" href="https://zaofestivals.com" target="_blank" rel="noopener">Visit zaofestivals.com</a>
+    </div>
+  </div>
+</section>
+
+<section id="decks">
+  <div class="sec-head">
+    <span class="kicker">Decks that ask for something</span>
+    <h2>Sponsor and pitch decks, animated so they get watched</h2>
+    <p>Each one makes a single ask clearly: back the event, join the platform, fund the build.</p>
+  </div>
+  <div class="grid two">
+    <figure class="work">
+      <video controls preload="none" playsinline poster="assets/work/posters/zao-chella-deck.jpg" aria-label="ZAO-CHELLA event deck"><source src="assets/work/video/zao-chella-deck.mp4" type="video/mp4"></video>
+      <figcaption>
+        <div class="meta"><span>Sponsor deck</span><span>1:12</span></div>
+        <h3>ZAO-CHELLA event deck</h3>
+        <p>Who the ZAO is, the featured musicians, the run of show, the attendee mix and the sponsorship tiers.</p>
+      </figcaption>
+    </figure>
+    <figure class="work">
+      <video controls preload="none" playsinline poster="assets/work/posters/untitled-1.jpg" aria-label="ZAO-CHELLA sponsor call video"><source src="assets/work/video/untitled-1.mp4" type="video/mp4"></video>
+      <figcaption>
+        <div class="meta"><span>Sponsor outreach</span><span>1:23</span></div>
+        <h3>ZAO-CHELLA last-call video</h3>
+        <p>A meme-forward "there is still time" reel covering the digital gallery, AR activations, the merch shop and brand placement on three big screens.</p>
+      </figcaption>
+    </figure>
+    <figure class="work">
+      <video controls preload="none" playsinline poster="assets/work/posters/press-release-marketplace.jpg" aria-label="Press Release Marketplace deck"><source src="assets/work/video/press-release-marketplace.mp4" type="video/mp4"></video>
+      <figcaption>
+        <div class="meta"><span>Pitch deck</span><span>1:33</span></div>
+        <h3>Press Release Marketplace</h3>
+        <p>The trust problem in media, market data, a lean versus traditional funding plan, and a clear call for support.</p>
+      </figcaption>
+    </figure>
+    <figure class="work">
+      <video controls preload="none" playsinline poster="assets/work/posters/lean-mean-wavewarz.jpg" aria-label="WaveWarz pitch deck"><source src="assets/work/video/lean-mean-wavewarz.mp4" type="video/mp4"></video>
+      <figcaption>
+        <div class="meta"><span>Pitch deck</span><span>0:33</span></div>
+        <h3>The Lean Mean WaveWarz Machine</h3>
+        <p>A 33-second run through the music pay problem, how battles work, the business model, the team and the ask.</p>
+      </figcaption>
+    </figure>
+  </div>
+</section>
+
+<section id="video">
+  <div class="sec-head">
+    <span class="kicker">AI video</span>
+    <h2>Cinematic promos made with AI tools</h2>
+    <p>Concept, prompts, edit and sound, built fast and on a small budget.</p>
+  </div>
+  <div class="grid">
+    <figure class="work">
+      <video controls preload="none" playsinline poster="assets/work/posters/colosseum-mv.jpg" aria-label="Colosseum music video"><source src="assets/work/video/colosseum-mv.mp4" type="video/mp4"></video>
+      <figcaption>
+        <div class="meta"><span>Music video</span><span>Made with Claude Code</span><span>1:52</span></div>
+        <h3>Colosseum music video</h3>
+        <p>A neon, generative take on the Colosseum with live WaveWarz battle overlays, built with Claude Code.</p>
+      </figcaption>
+    </figure>
+    <figure class="work">
+      <video controls preload="none" playsinline poster="assets/work/posters/nate-lavine-mv.jpg" aria-label="Nate Levine music video"><source src="assets/work/video/nate-lavine-mv.mp4" type="video/mp4"></video>
+      <figcaption>
+        <div class="meta"><span>Music video</span><span>2:15</span></div>
+        <h3>Nate Levine music video</h3>
+        <p>AI-generated art, live battle footage and Solana imagery cut together into one hype reel for WaveWarz.</p>
+      </figcaption>
+    </figure>
+    <figure class="work">
+      <video controls preload="none" playsinline poster="assets/work/posters/elevenlabs-tournament.jpg" aria-label="AI Music Tournament Wars"><source src="assets/work/video/elevenlabs-tournament.mp4" type="video/mp4"></video>
+      <figcaption>
+        <div class="meta"><span>Event promo</span><span>4:15</span></div>
+        <h3>AI Music Tournament Wars</h3>
+        <p>A bracket-style promo for an AI music tournament, with character cards for each artist and the battle schedule.</p>
+      </figcaption>
+    </figure>
+  </div>
+</section>
+
+<section id="builds">
+  <div class="sec-head">
+    <span class="kicker">Products and communities</span>
+    <h2>Things I built, launched and run</h2>
+    <p>From the product walkthrough to the live sites.</p>
+  </div>
+  <div class="grid two">
+    <figure class="work">
+      <video controls preload="none" playsinline poster="assets/work/posters/wavewarz-demo.jpg" aria-label="WaveWarz product demo"><source src="assets/work/video/wavewarz-demo.mp4" type="video/mp4"></video>
+      <figcaption>
+        <div class="meta"><span>Product demo</span><span>2:57</span></div>
+        <h3>WaveWarz product demo</h3>
+        <p>Timed live music battles on Solana, from joining a battle to settlement, the wallet checker and email or social sign-in.</p>
+      </figcaption>
+    </figure>
+    <div class="links">
+      <a class="link" href="https://wavewarz.info" target="_blank" rel="noopener"><u>Live site</u><b>wavewarz.info</b><span>Every battle, every number, onchain: the stats home for WaveWarz.</span></a>
+      <a class="link" href="https://tribevibez.com" target="_blank" rel="noopener"><u>Live site</u><b>tribevibez.com</b><span>The home for digital community programming: a marketplace where community managers book hosts for trivia, meditation, AMAs, music and workshops.</span></a>
+      <a class="link" href="https://pressreleasemarketplace.com" target="_blank" rel="noopener"><u>Live site</u><b>pressreleasemarketplace.com</b><span>A marketplace for press releases, shown in the deck above.</span></a>
+    </div>
+  </div>
+
+  <div class="site flip">
+    <div>
+      <div class="browser">
+        <div class="top"><i></i><i></i><i></i><em>studentloanz.xyz · captured May 27, 2026</em></div>
+        <div class="scroller" role="region" aria-label="Scrollable capture of the Student Loanz landing page" tabindex="0"><img src="assets/work/img/studentloanz-page.jpg" alt="Full-page capture of the Student Loanz landing page with petition, community, and mission sections" width="960" height="6862"></div>
+      </div>
+      <p class="hint">Scroll inside the frame to see the whole page.</p>
+    </div>
+    <div class="site-copy">
+      <span class="meta"><span>Landing page</span><span>Campaign</span></span>
+      <h3>Student $LOANZ</h3>
+      <p>A campaign page for a community movement around student debt: the petition, the mission, the community links, a free memebook and a share-ready meme kit.</p>
+      <a class="go" href="https://studentloanz.xyz" target="_blank" rel="noopener">Visit studentloanz.xyz</a>
+    </div>
+  </div>
+</section>
+
+<section id="toolkit">
+  <div class="sec-head">
+    <span class="kicker">Toolkit</span>
+    <h2>Fluent in the tools that make this fast</h2>
+  </div>
+  <div class="tools">
+    <img src="assets/work/img/chatgpt-year.jpg" alt="Year in review: top 5 percent of users by messages sent, among the first 10 percent of users, 475 chats, 4,938 messages, 503 images generated" width="900" height="900">
+    <div class="stack">
+      <img src="assets/work/img/canva-since-2020.jpg" alt="Designing with Canva since 2020, Your Memory Library" width="950" height="308">
+      <ul>
+        <li>Top 5% of users by messages sent, and among the first 10% of users, in a 2025 year in review</li>
+        <li>503 AI images generated in 2025, across 475 chats</li>
+        <li>Canva since 2020; also CapCut, iMovie, Claude, Replit, Airtable and Google Sheets</li>
+        <li>No-code and low-code first, so the client can run it after handoff</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<footer id="contact">
+  <span><b>Candy Cookz</b> · Creative and AI systems</span>
+  <span>CandyToyBox · CandyToyBox.eth</span>
+  <a class="mail" href="mailto:onchain@pressreleasemarketplace.com">onchain@pressreleasemarketplace.com</a>
+  <a class="mail" href="menu">Order a cook from the menu</a>
+  <a class="mail" href="https://x.com/CandyToyBoxYT1" target="_blank" rel="noopener">@CandyToyBoxYT1 on X</a>
+</footer>
+</div>
+
+<script>
+(function () {
+  var vids = document.querySelectorAll('figure.work video');
+  vids.forEach(function (v) {
+    v.addEventListener('play', function () {
+      vids.forEach(function (o) { if (o !== v && !o.paused) o.pause(); });
+    });
+  });
+})();
+</script>
+
+</body>
+</html>
